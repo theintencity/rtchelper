@@ -1,4 +1,4 @@
-# RTC Help
+# RTC Helper
 
 This Chrome browser extension allows you to customize WebRTC APIs on third-party websites.
 
