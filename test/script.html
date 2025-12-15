@@ -1,0 +1,131 @@
+<!-- RTC Helper (c) 2025, Kundan Singh (theintencity@gmail.com) -->
+<!doctype html>
+<html>
+<head>
+    <title>RTC Helper Test</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+    <script type="text/javascript" src="../dist/js/inject.js"></script>
+
+    <style type="text/css">
+        div.buttons {
+            display: flex; flex-flow: row nowrap;
+        }
+        video {
+            max-width: 600px; max-height: 600px;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+// https://www.w3schools.com/graphics/canvas_clock.asp
+
+const videocapture = (function(canvas) {
+    /* Show an analog clock */
+    const ctx = canvas.getContext("2d");
+    const w = canvas.width, h = canvas.height;
+    const radius = Math.floor((Math.min(w, h) * 0.9) / 2);
+
+    ctx.clearRect(0,0,w,h);
+
+    const drawFace = function(ctx, radius) {
+        var grad;
+        
+        ctx.beginPath();
+        ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+        
+        grad = ctx.createRadialGradient(0, 0 ,radius * 0.95, 0, 0, radius * 1.05);
+        grad.addColorStop(0, '#333');
+        grad.addColorStop(0.5, 'white');
+        grad.addColorStop(1, '#333');
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = radius*0.1;
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
+        ctx.fillStyle = '#333';
+        ctx.fill();
+    };
+    
+    const drawNumbers = function(ctx, radius) {
+        var ang;
+        var num;
+        ctx.font = radius * 0.15 + "px arial";
+        ctx.textBaseline = "middle";
+        ctx.textAlign = "center";
+        for(num = 1; num < 13; num++){
+            ang = num * Math.PI / 6;
+            ctx.rotate(ang);
+            ctx.translate(0, -radius * 0.85);
+            ctx.rotate(-ang);
+            ctx.fillText(num.toString(), 0, 0);
+            ctx.rotate(ang);
+            ctx.translate(0, radius * 0.85);
+            ctx.rotate(-ang);
+        }
+    };
+
+        
+    const drawHand = function(ctx, pos, length, width) {
+        ctx.beginPath();
+        ctx.lineWidth = width;
+        ctx.lineCap = "round";
+        ctx.moveTo(0,0);
+        ctx.rotate(pos);
+        ctx.lineTo(0, -length);
+        ctx.stroke();
+        ctx.rotate(-pos);
+    };
+
+    const drawTime = function(ctx, radius){
+        var now = new Date();
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        var second = now.getSeconds();
+        //hour
+        hour = hour%12;
+        hour = (hour*Math.PI/6)+(minute*Math.PI/(6*60))+(second*Math.PI/(360*60));
+        drawHand(ctx, hour, radius*0.5, radius*0.07);
+        //minute
+        minute = (minute*Math.PI/30)+(second*Math.PI/(30*60));
+        drawHand(ctx, minute, radius*0.8, radius*0.07);
+        // second
+        second = (second*Math.PI/30);
+        drawHand(ctx, second, radius*0.9, radius*0.02);
+    };
+        
+    ctx.translate(w/2, h/2);
+
+    drawFace(ctx, radius);
+    drawNumbers(ctx, radius);
+    drawTime(ctx, radius);
+    ctx.translate(-w/2, -h/2);
+
+}).toString();
+
+    </script>
+
+</head>
+<body>
+    <script type="text/javascript">
+        _rtchelper_content(undefined, undefined, "/dist/res");
+        _rtchelper_setprocess("videocapture", videocapture);
+    </script>
+
+    <video class="local" autoplay controls muted></video>
+    <video class="remote" autoplay controls muted></video>
+    <video class="copy1" autoplay controls muted></video>
+
+    <div class="buttons">
+        <button class="start">Capture</button><button class="connect">Connect</button>&nbsp;
+        <input class="screen" type="checkbox"> Screen&nbsp;
+        <button class="data">Data</button>
+        <input class="text" />
+    </div>
+    
+    <script src="test.js" type="text/javascript"></script>
+</body>
+</html>

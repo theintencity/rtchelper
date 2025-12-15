@@ -1,0 +1,57 @@
+{
+    "manifest_version": 3,
+    "name": "RTC Helper",
+    "version": "3.0",
+    "description": "Analyze, customize and improve audio/video communication on any website.",
+    "homepage_url": "https://kundansingh.com/p/rtchelper/index.html",
+    "action": {
+        "default_icon": "res/icon48-bw.png",
+        "default_title": "RTC Helper 3.0\nAnalyze, customize and improve audio/video communication on any website.\n(c) 2025, Kundan Singh."
+    },
+    "background": {
+        "service_worker": "js/background.js"
+    },
+    "content_scripts": [ {
+        "all_frames": true,
+        "js": [ "js/content.js" ],
+        "matches": [ "https://*/*", "http://localhost:*/*" ],
+        "run_at": "document_start"
+    } ],
+    "icons": {
+        "128": "res/icon128.png", "16": "res/icon16.png", "48": "res/icon48.png"
+    },
+    "web_accessible_resources": [{
+        "resources": ["res/icon48.png", "js/inject.js", "options/*", "options/ext/*", "res/*.jpg", "options/ext/worker-javascript.js",
+            "ext/*"],
+        "matches": ["<all_urls>"]
+    }],
+    "options_ui": {
+        "browser_style": true,
+        "open_in_tab": true,
+        "page": "options/index.html"
+    },
+    //"devtools_page": "devtools.html",
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'",
+        "sandbox": "sandbox allow-scripts; script-src 'self' 'unsafe-eval'; object-src 'self'"
+    },
+    "permissions": [ 
+        "storage", "notifications", "tabs", "system.display", "contextMenus", "webRequest", "webNavigation",
+        "scripting", "declarativeNetRequest", "declarativeNetRequestWithHostAccess", "declarativeNetRequestFeedback",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "optional_permissions": [
+        "system.cpu"
+    ],
+    "declarative_net_request": {
+        "rule_resources": [{
+          "id": "csp_rules",
+          "enabled": true,
+          "path": "csp_rules.json"
+        }]
+     },
+    "update_url": "http://clients2.google.com/service/update2/crx"
+}

@@ -1,0 +1,154 @@
+/* RTC Helper (c) 2025, Kundan Singh (theintencity@gmail.com) */
+
+html {
+    width: 100%; height: 100%;
+}
+body {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    display: flex; flex-flow: column nowrap;
+    width: 100%; height: 100%;
+    font-family: sans-serif;
+    color: #333;
+}
+body:not([loaded]) {
+    display: none; visibility: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+div.header {
+    padding: 4px; width: 100%; box-sizing: border-box;
+    background-color: darkblue; color: white;
+    cursor: default;
+}
+div.header > h1 {
+    margin: 0;
+    display: inline-block;
+}
+div.header > img {
+    width: 32px; height: 32px;
+    background-color: white;
+    padding: 4px;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+div.content {
+    width: 100%; flex: 1;
+    display: flex; flex-flow: row nowrap;
+}
+div.content > * {
+    position: relative;
+}
+div.domains {
+    width: 240px; max-width: 50%; height: 100%;
+    display: flex; flex-flow: column nowrap; align-content: flex-start;
+    border-right: solid 1px rgba(0,0,255,0.3);
+    box-sizing: border-box;
+    background-color: white;
+}
+div.search {
+    display: flex; flex-flow: row nowrap;
+}
+div.search > input {
+    flex: 1;
+    outline: none;
+    border: solid 1px lightgray;
+    font-size: 10pt; line-height: 10pt;
+    padding-top: 4px; padding-bottom: 4px;
+}
+div.search > button.add {
+    width: 25px; height: 25px; 
+    border: none;
+    border-bottom: solid 1px lightgrey;
+    border-top: solid 1px lightgrey;
+    cursor: pointer;
+    color: #333;
+}
+div.item[hidden] {
+    display: none; visibility: hidden;
+}
+div.item {
+    position: relative;
+    height: 32px; width: 100%;
+    box-sizing: border-box;
+    padding: 4px; 
+    border: none;
+    display: flex; flex-flow: column nowrap; justify-content: center;
+    background: linear-gradient(rgba(255,255,255,0), rgba(196,196,196, 0.1));
+}
+div.item[customize] {
+    background: linear-gradient(rgba(0,0,255,0.1), rgba(0,0,255,0.15));
+    cursor: pointer;
+}
+div.item[customize][selected] {
+    background: linear-gradient(rgba(0,0,128,0.7), rgba(0,0,128,0.5));
+    color: white;
+}
+div.item > button {
+    position: absolute;
+    border: none;
+    width: 16px; height: 16px; border-radius: 8px; box-sizing: border-box;
+    padding: 0; margin: 0;
+    cursor: pointer;
+}
+div.item > button:after {
+    font-size: 10px; line-height: 10px;
+    display: flex; justify-content: center; align-items: center;
+}
+div.item > button.close {
+    top: 8px; right: 2px;
+    color: gray;
+    background: transparent;
+}
+div.item:not(:hover) > button.close {
+    display: none; visibility: hidden;
+}
+div.item > button.close:after {
+    content: "\2715";
+}
+
+div.item > * {
+    position: relative;
+}
+div.item > :last-child {
+    margin-bottom: 0;
+}
+div.item > label {
+    position: absolute; 
+    right: 10px; top: 0px; 
+    display: flex; justify-content: center; align-items: center;
+    user-select: none;
+    font-size: 10px;
+}
+div.item > img.favicon {
+    position: absolute; 
+    left: 10px; top: 8px; width: 16px; height: 16px;
+}
+div.item > span.title {
+    font-size: 10pt;
+    margin-left: 30px; 
+    user-select: none;
+    overflow: hidden; text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+div.options {
+    flex: 1; min-width: 400px;
+    display: flex; flex-flow: column nowrap;
+    box-sizing: border-box;
+}
+iframe {
+    position: absolute;
+    width: 100%; height: 100%;
+}
+
+div.header:not(:hover), div.domains:not(:hover) {
+    filter: grayscale(100%);
+}
+
+body[inline] div.header, body[inline] div.domains {
+    display: none; visibility: hidden;
+}

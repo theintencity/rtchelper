@@ -1,0 +1,326 @@
+<!-- RTC Helper (c) 2025, Kundan Singh (theintencity@gmail.com) -->
+<!doctype html>
+<html>
+
+<head>
+    <title>RTC Helper Options</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="author" content="Kundan Singh"/>
+    <meta name="keywords" content="WebRTC,Helper"/>
+    <meta name="description" content="Analyze, customize and improve audio/video communication on any website"/>
+    
+    <link rel="stylesheet" type="text/css" href="options.css"></link>
+    
+    <script type="text/javascript" src="ext/ace.js"></script> <!-- uses mode-javascript.js -->
+    <!--
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.5.0/ace.js" integrity="sha384-JnUag1h/Y3XXhcm95m/Xw8mBxPQPpdnFU0nJGuMFEvmy8r55J6SE8i5SVs/WUOEw" crossorigin="anonymous" charset="UTF-8"></script>
+    -->
+
+    <!-- cat FILE.js | openssl dgst -sha384 -binary | openssl base64 -A -->
+    <script type="text/javascript" src="functions.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="options.js"></script>
+</head>
+<body selected="videocapture">
+    <template id="tab-item">
+        <div tab="{{tab}}" title="{{title}}">{{name}}</div>
+        <div class="tab" tab="{{tab}}">
+            <div class="help">
+                <div class="title"></div>
+                <div class="desc"></div>
+            </div>
+            <div class="toolbar">
+                <select title="Select built-in customization, and/or edit below."><option>Select...</option></select>
+                <input class="caption" type="text" placeholder="Type description here..." />
+                <button class="save" title="Save and apply the changes. Press ctrl+S or cmd+S"></button>
+            </div>
+            <div class="editor"></div>
+        </div>
+    </template>
+
+    <div class="nav">
+        <div class="before">&#xab;</div>
+        <div class="last" tab="settings" title="Configure the helper tool">Settings</div>
+        <div tab="help" title="Get help or search documentation">Help</div>
+        <div class="after">&#xbb;</div>
+    </div>
+    <div class="content">
+        <div class="tab" tab="videocapture" name="Capture">
+            <div class="help">
+                <div class="title">Customize the webcam capture feed</div>
+                <div class="desc">
+                    <span>It uses an internal canvas to generate the video returned by any getUserMedia stream, and allows drawing on the canvas for each frame. The function defined below is called periodically to draw the video image. The function can access one webcam video or multiple webcam videos. The function may be async, in which case the subsequent calls are not invoked until the previous one returns.</span>
+                </div>
+            </div>
+        </div>
+        <div class="tab" tab="screencapture" name="Screen">
+            <div class="help">
+                <div class="title">Customize the screen capture feed</div>
+                <div class="desc">
+                    <span>It uses an internal canvas to generate the video images returned by any getDisplayMedia stream, and allows drawing on the canvas for each frame. This is similar to the webcam capture feature. The function defined below is called periodically to draw the video image. The function can access one screen or app video, one webcam video or multiple webcam videos, or multiple screen or app videos. For single screen or app video use the screen parameter described below. For multiple screen or app videos, use screen1, screen2, and similar parameters. The function may be async, in which case subsequent calls are not invoked until the previous one returns.</span>
+                </div>
+            </div>
+        </div>
+        <div class="tab" tab="mediastream" name="Stream">
+            <div class="help">
+                <div class="title">Customize media streams in capture, or receive</div>
+                <div class="desc">
+                    <span>It allows intercepting and modifying any media stream created using getUserMedia, getDisplayMedia, or captureStream, or received on a peer connection in its ontrack event. The function defined below is called for each such instance. It can intercept changes to the media stream and included media tracks. Because of the underlying implementation, the function may be async only for getUserMedia or getDisplayMedia use cases, but not for others.</span>
+                </div>
+            </div>
+        </div>
+        <div class="tab" tab="devicelist" name="Devices">
+            <div class="help">
+                <div class="title">Customize list of available webcam, microphone and speaker devices</div>
+                <div class="desc">
+                    <span>It allows intercepting and modifying the list of devices returned by any enumerateDevices call, and altering the list devices shown by the application. The function defined below is called to intercept the enumerateDevices calls, and to alter the list of devices returned. The function must return the new list of devices. The function may be async.</span>
+                </div>
+            </div>
+        </div>
+        <div class="tab" tab="usermedia" name="Media">
+            <div class="help">
+                <div class="title">Customize user media constraints such as frame rate, width and height</div>
+                <div class="desc">
+                    <span>It allows intercepting and modifying the constraints supplied to any getUserMedia and applyConstraints calls. The function defined below is called to intercept the getUserMedia and applyConstraints calls, and to alter the supplied constraints. The function can modify the supplied constraints object or return a new constraints object. The function may be async.</span>
+                </div>
+            </div>
+        </div>
+        <div class="tab" tab="mediacodec" name="Session">
+            <div class="help">
+                <div class="title">Customize session description attributes such as codec and bandwidth</div>
+                <div class="desc">
+                    <span>It allows intercepting and modifying various methods related to media session in any RTCPeerConnection object. The function defined below is called to intercept the session description objects in the createOffer, createAnswer, setLocalDescription and setRemoteDescription methods of any RTCPeerConnection object. The function may be async, in which case the intercepted function awaits its completion. The function may return the new or modified session object, or may alter the supplied session object. The function may be async.</span>
+                </div>
+            </div>
+        </div>
+        <div class="tab" tab="mediaconnect" name="Connect" noasync>
+            <div class="help">
+                <div class="title">Customize connection attributes such as ICE servers and DSCP</div>
+                <div class="desc">
+                    <span>It allows intercepting and modifying any call to construct a new RTCPeerConnection. The function defined below is called to intercept the constructor of RTCPeerConnection, and to alter the supplied configuration and constraints. The function can modify the supplied configuration or return the new configuration. The function can also modify the supplied constraints. The function must not be async.</span>
+                </div>
+            </div>
+        </div>
+        <div class="tab" tab="medianetwork" name="Network" noasync>
+            <div class="help">
+                <div class="title">Customize transport parameters such as ICE candidates</div>
+                <div class="desc">
+                    <span>It allows intercepting and modifying various method and events related to network connection in any RTCPeerConnection object. The function defined below is called to intercept the ICECandidate objects in the icecandidate event and the addIceCandidate method of any RTCPeerConnection object. The function may modify the supplied candidate or return the new candidate. If the return value is null, then the supplied candidate is not used and is filtered out. The function must not be async.</span>
+                </div>
+            </div>
+        </div>
+        <div class="tab" tab="datachannel" name="Data" noasync>
+            <div class="help">
+                <div class="title">Customize data channel behavior</div>
+                <div class="desc">
+                    <span>It allows intercepting and modifying various methods and events on any data channel. The function defined below is called for various data channel related method and events to intercept and alter the behavior. The function must not be async.</span>
+                </div>
+            </div>
+        </div>
+        <div class="tab" tab="websocket" name="Socket">
+            <div class="help">
+                <div class="title">Customize WebSocket behavior</div>
+                <div class="desc">
+                    <span>It allows intercepting and modifying various methods and events on any WebSocket object. The function defined below is called for various WebSocket related method and events to intercept and alter the behavior.</span>
+                </div>
+            </div>
+        </div>
+        <div class="tab" tab="webrequest" name="Request">
+            <div class="help">
+                <div class="title">Customize XMLHttpRequest and fetch behavior</div>
+                <div class="desc">
+                    <span>It allows intercepting and modifying various methods and events on the any Ajax request and their responses. The function defined below is called for various Ajax related method and events to intercept and alter the behavior. In the intercepting function for request or response, removing the arguments from the args list suppresses the request or response, modifying the args list item can affect the next behavior, returning from the function can return a success response, and throwing an error can return an error response. Additionally, calling the resolve or reject function with the right parameter, causes the related request or response to skip further processing and return the success or error response, respectively.</span>
+                </div>
+            </div>
+        </div>
+        <div class="tab static" name="Settings" tab="settings">
+            <div class="buttons">
+                <button class="reset" title="Reset to default">Reset</button>
+                <button class="save" title="Save and apply the changes. Press ctrl+S or cmd+S"></button>
+            </div>
+            <h2>RTC Helper Settings</h2>
+            <label>
+                When shown in the browser extension, these settings are globally applied to all the domains.
+                Without the browser extension, some of the settings may be required by the embedding
+                web page e.g., using the <code>?required=mode:inline|theme:light</code> or similar parameter.
+                In that case, any change in those settings are disabled here.
+                Please reload your web page after making and saving any changes here to see the effect.
+            </label>
+
+            <h3>Display Theme</h3>
+            <label>The options panel uses light or dark color theme based on the system default.
+            Web page can specify the behavior, e.g., using the <code>?theme=dark</code> or
+            <code>?settings=theme:dark</code> parameter in the script
+            source URL. You can override the behavior by making a selection below.</label>
+            <div></div>
+            <div class="item" name="theme">
+                <input class="theme" value="light" type="checkbox" />
+                <label>Light</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="theme" value="dark" type="checkbox" />
+                <label>Dark</label>
+            </div>
+
+            <h3>Display Layout</h3>
+            <label>The options panel can appear inline as an iframe or in a separate open window. Web page 
+            can specify the behavior, e.g., using the <code>?mode=inline</code> or <code>?settings=theme:dark</code>
+            parameter in the script source URL. You can override the behavior by making a selection below.
+            </label>
+            <div></div>
+            <div class="item" name="mode">
+                <label>Open this panel in</label>
+                <input class="mode" value="open" type="checkbox" />
+                <label>an external window</label>
+                <input class="mode" value="open-pinned" type="checkbox" hide="noext" />
+                <label hide="noext">with pinned tab or</label>
+                <input class="mode" value="open-popup" type="checkbox" hide="noext" />
+                <label hide="noext">popup window, or as</label>
+                <input class="mode" value="inline" type="checkbox" />
+                <label>an inline iframe</label>
+                <input class="mode" value="inline-float" type="checkbox" />
+                <label>with floating display.</label>
+                <br/>
+                <label>Inline location of right (default), </label>
+                <label>or left</label>
+                <input class="mode-suffix" value="left" type="checkbox" />
+                <label>or bottom</label>
+                <input class="mode-suffix" value="bottom" type="checkbox" />
+            </div>
+
+            <h3>Display Tabs</h3>
+            <label>
+                Enter a list of comma separated tabs to show in that order. 
+                Default with empty box shows all the tabs in their default order. 
+                Note that the settings tab cannot be hidden.
+            </label>
+            <div class="textarea" name="tabslist">
+                <textarea class="tabslist" spellcheck="false" placeholder="e.g., Capture,Screen,Help"></textarea>
+            </div>
+
+            <h3>Font Size</h3>
+            <label>
+                Select small (default), medium or large font size for readability.
+            </label>
+            <div class="select" name="fontsize">
+                <select class="fontsize">
+                    <option>small</option>
+                    <option>medium</option>
+                    <option>large</option>
+                </select>
+            </div>
+
+            <h3>Code Editor</h3>
+            <label>The code editor in various tabs can be configured to change the default behavior.</label>
+            <div></div>
+            <div class="item" name="editor">
+                <input class="editor" value="wrap" type="checkbox" checked
+                    title="wrap long lines"/>
+                <label>wrap</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="editor" value="highlightline" type="checkbox"
+                    title="highlight selected line"/>
+                <label>select line</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="editor" value="highlightword" type="checkbox"
+                    title="highlight selected word"/>
+                <label>select word</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="editor" value="indentguide" type="checkbox" checked
+                    title="show indent guides"/>
+                <label>indent guide</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="editor" value="invisibles" type="checkbox"
+                    title="show invisible characters"/>
+                <label>invisibles</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <br/>
+                <input class="editor" value="foldcomment" type="checkbox" checked
+                    title="fold all block comments"/>
+                <label>fold comment</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+
+            <h3>Edit and Save</h3>
+            <label>Configure to allow script editing and saving named scripts. If the edit scripts option is checked,
+            then it allows editing and saves the edits locally. If the save named scripts option is
+            checked then it allows keeping named copies of various edits to allow experimentation.
+            Note that edit scripts is required to enable save named scripts.
+            </label>
+            <div></div>
+            <div class="item" name="scripts">
+                <input class="scripts" value="edit" type="checkbox" checked />
+                <label>Edit scripts.</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="scripts" value="named" type="checkbox" />
+                <label>Save named scripts.</label>
+            </div>
+
+            <h3>Strict Mode</h3>
+            <label>
+                Using strict mode prevents access to globals and other data in the functions
+                used in various tabs. This is useful if you do not trust the source of
+                those functions or if the function definitions are minified to hide
+                its behavior. You do not need strict mode if you can visually inspect
+                the function definition and find no malicious usage.
+            </label>
+            <div></div>
+            <div class="item" name="strict">
+                <input class="strict" value="always" type="checkbox" />
+                <label>All scripts</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="strict" value="external" type="checkbox" style="display:none;"/>
+                <label style="display:none;">Only external scripts</label>
+            </div>
+        </div>
+        <div class="tab static" name="Help" tab="help">
+            <button class="help" title="Open the project website in a separate tab"></button>
+            <h2>What is RTC Helper?</h2>
+            <label>
+                The <em>RTC Helper</em> software facilitates testing and debugging
+                WebRTC-based applications in the browser by web developers. It can also 
+                provide the end user control over various multimedia features such as
+                captured stream, bandwidth management, and API controls.
+                When used as a browser extension, it allows 
+                the end user to analyze, customize and improve audio/video
+                communication on third-party websites that use WebRTC. When used
+                integrated in the developer's own web application, it allows
+                the developer to quickly experiment with new ideas.
+                <br/><br/>
+                At the core, this software can selectively intercept certain 
+                WebRTC and related APIs such as <code>getUserMedia</code>,
+                <code>RTCPeerConnection</code> and <code>WebSocket</code>, and
+                can inject some code to alter their behavior in real-time.
+                <br/>
+                <br/>
+            </label>
+
+            <h2>How do I use this?</h2>
+            <label>
+                There are generally three ways to use this software:
+                <ol class="nolink">
+                <li>Any user can install and enable this to test and debug any third-party 
+                website using a Google Chrome-compatible browser extension. The browser extension
+                intercepts and applies the features of this software to all the web pages you visit.
+                For privacy reason or to avoid interfering with your regular browsing behavior,
+                it is recommended to use a separate browser persona to enable this extension
+                for web development, testing and debugging effort.</li>
+                <li>As a web developer, you can include this software in your WebRTC enabled website,
+                to make this available to your web app users. You do this using the the &lt;script&gt;
+                tag in your web pages. In this mode all the features in this software are directly 
+                available to your web app users, and can be enabled by the end user by clicking on an
+                easter-egg button.</li>
+                <li>As a web developer, you can include some parts of this software via 
+                the &lt;script&gt; tag, and enable them programmatically and selectively to your end 
+                users. In this mode, only selected features of this software are enabled for your
+                users, and must be triggered programmatically via your app logic.</li>
+                </ol>
+            </label>
+
+            <h2>What are the main topics?</h2>
+            <label>Click on an available topic listed below, to select the right tab.</label>
+            <ol class="topics"></ol>
+            <span>The various customization categories or tabs are summarized below.</span>
+            <table class="topicdesc">
+                <thead><tr><td>Tab</td><td>Summary</td></tr></thead>
+                <tbody></tbody>
+            </table>
+
+            <h2>How do I do this or that?</h2>
+            <label>Click on an available feature listed below, to select it in the right tab. The
+            changes are not applied until you click to save in that tab.</label>
+            <ol class="features"></ol>
+        </div>
+    </div>
+</body>
+</html>

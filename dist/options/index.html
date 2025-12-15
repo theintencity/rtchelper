@@ -1,0 +1,41 @@
+<!-- RTC Helper (c) 2025, Kundan Singh (theintencity@gmail.com) -->
+<!doctype html>
+<html>
+<head>
+    <title>RTC Helper</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="author" content="Kundan Singh"/>
+    <meta name="keywords" content="WebRTC,Helper"/>
+    <meta name="description" content="Analyze, customize and improve audio/video communication on any website"/>
+    
+    <link rel="stylesheet" type="text/css" href="index.css"></link>
+    <script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img src="../res/icon48.png" style="float: right;"/>
+        <h1>RTC helper</h1>
+        <span>Analyze, customize and improve audio/video communication on any website.</span>
+    </div>
+    <div class="content">
+        <div class="domains">
+            <div class="search">
+                <input type="text" placeholder="Search..." title="Type domain to search"/>
+                <button class="add" title="Type domain, and click here to add">+</button>
+            </div>
+        </div>
+        <div class="options">
+            <iframe frameborder="0" src="options.html"></iframe>
+        </div>
+    </div>
+
+    <template id="domain-item">
+        <div class="item" custom="false">
+            <img class="favicon" alt="" />
+            <span class="title"></span>
+            <button class="close" title="Remove to ask again on next use"></button>
+        </div>
+    </template>
+</body>
+</html>
