@@ -1,0 +1,23 @@
+<svg width="840" height="260" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>Layer 1</title>
+  <rect stroke="#000" id="svg_1" height="100" width="300" y="10" x="10" fill="#fff"/>
+  <text xml:space="preserve" text-anchor="start" font-family="sans-serif" font-size="24" id="svg_3" y="64" x="54" stroke-width="0" stroke="#000" fill="#000000">Web page HTML + JS</text>
+  <rect stroke="#000" id="svg_4" height="100" width="300" y="150" x="10" fill="#fff"/>
+  <text xml:space="preserve" text-anchor="start" font-family="sans-serif" font-size="24" id="svg_5" y="205" x="34" stroke-width="0" stroke="#000" fill="#000000">Browser / WebRTC APIs</text>
+  <rect id="svg_6" height="20" width="300" y="120" x="10" stroke="#000" fill="#ffffff"/>
+  <text xml:space="preserve" text-anchor="start" font-family="sans-serif" font-size="16" id="svg_7" y="135" x="116" stroke-width="0" stroke="#000" fill="#000000">API intercept</text>
+  <line id="svg_8" y2="35.5" x2="410" y1="119" x1="313" stroke="#000" stroke-dasharray="5,5" fill="none"/>
+  <line id="svg_9" y2="224.5" x2="410" y1="138" x1="313" stroke="#000" stroke-dasharray="5,5" fill="none"/>
+  <text xml:space="preserve" text-anchor="start" font-family="monospace" font-size="12" id="svg_11" y="46" x="410" stroke-width="0" stroke="#000" fill="#000000">var old = navigator.mediaDevices.getUserMedia;</text>
+  <text xml:space="preserve" text-anchor="start" font-family="monospace" font-size="12" id="svg_12" y="63" x="410" stroke-width="0" stroke="#000" fill="#000000">navigator.mediaDevices.getUserMedia = function (...) {... };</text>
+  <text xml:space="preserve" text-anchor="start" font-family="monospace" font-size="12" id="svg_13" y="82" x="410" stroke-width="0" stroke="#000" fill="#000000">// ... and similar for other APIs</text>
+  <text xml:space="preserve" text-anchor="start" font-family="sans-serif" font-size="24" id="svg_14" y="110" x="370" stroke-width="0" stroke="#000" fill="#000000">virtual background</text>
+  <text xml:space="preserve" text-anchor="start" font-family="sans-serif" font-size="24" id="svg_15" y="130" x="590" stroke-width="0" stroke="#000" fill="#000000">media recording</text>
+  <text xml:space="preserve" text-anchor="start" font-family="sans-serif" font-size="24" id="svg_16" y="150" x="367" stroke-width="0" stroke="#000" fill="#000000">quality monitoring</text>
+  <text xml:space="preserve" text-anchor="start" font-family="sans-serif" font-size="24" id="svg_17" y="170" x="620" stroke-width="0" stroke="#000" fill="#000000">performance tuning</text>
+  <text xml:space="preserve" text-anchor="start" font-family="sans-serif" font-size="24" id="svg_19" y="190" x="400" stroke-width="0" stroke="#000" fill="#000000">customized layout</text>
+  <text xml:space="preserve" text-anchor="start" font-family="sans-serif" font-size="24" id="svg_20" y="210" x="620" stroke-width="0" stroke="#000" fill="#000000">and much more</text>
+ </g>
+</svg>

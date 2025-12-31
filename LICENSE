@@ -1,10 +1,10 @@
-The software is released under dual license: AGPL (GNU Affero
+The core software is released under dual license: AGPL (GNU Affero
 General Public License) and an Alternative commercial license.
 
 The AGPL v3 LICENSE terms are included below in this document.
 In summary, this means that if any piece of this software is used in
 your project and made available to others, then you would need to
-opensource all pieces of all interacting software including yours,
+open source all pieces of all interacting software including yours,
 using GPL, AGPL or similar license, even if your software is cloud 
 hosted and not available in source code otherwise. This restrictive
 terms are generally good for personal use, where you do not "release"
@@ -27,9 +27,10 @@ Any contributions to this software such as in the form of pull request
 or suggested changes that gets merged or included is this software,
 automatically get the copyright and ownership transferred to the
 original software owner mentioned above, and turn into the dual license
-term mentioned here, to be compatible with the original software. This
-clause allows the software owner to continue to provide the open source
-offering at the dual license terms, and benefit everyone.
+term mentioned here, to be compatible with the original software
+license. This clause allows the software owner to continue to provide
+the open source offering at the dual license terms, and benefits
+everyone.
 
 -----------------------------------------------------------------------
                     GNU AFFERO GENERAL PUBLIC LICENSE

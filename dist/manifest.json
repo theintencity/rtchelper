@@ -3,10 +3,10 @@
     "name": "RTC Helper",
     "version": "3.0",
     "description": "Analyze, customize and improve audio/video communication on any website.",
-    "homepage_url": "https://kundansingh.com/p/rtchelper/index.html",
+    "homepage_url": "https://github.com/theintencity/rtchelper",
     "action": {
         "default_icon": "res/icon48-bw.png",
-        "default_title": "RTC Helper 3.0\nAnalyze, customize and improve audio/video communication on any website.\n(c) 2025, Kundan Singh."
+        "default_title": "RTC Helper 3.0\nAnalyze, customize and improve audio/video communication on any website.\n(c) 2025-2026, Kundan Singh."
     },
     "background": {
         "service_worker": "js/background.js"

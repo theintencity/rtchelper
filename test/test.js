@@ -1,4 +1,4 @@
-// RTC Helper (c) 2025, Kundan Singh (theintencity@gmail.com)
+// RTC Helper (c) 2025-2026, Kundan Singh (theintencity@gmail.com)
 
 let local_stream = null;
 let senders = [];
@@ -6,7 +6,7 @@ let starting = false;
 let constraints = {audio: true, video: true};
 if (true) {
     constraints.video = {
-        width: 240, height: 240, frameRate: 1
+        width: 240, height: 240, frameRate: 5
     };
 }
 document.querySelector("input.text").onkeyup = event => {
@@ -59,6 +59,9 @@ document.querySelector("button.start").onclick = event => {
             } else {
                 do_stop();
             }
+        }).catch(error => {
+            console.error("failed to get media", error);
+            button.innerText = "Capture";
         });
     }
 };
@@ -111,11 +114,11 @@ document.querySelector("button.connect").onclick = event => {
         pc1 = new RTCPeerConnection();
         pc2 = new RTCPeerConnection();
         pc1.onicecandidate = event => {
-            //console.log("pc1.onicecandidate");
+            //console.log("pc1.onicecandidate", event.candidate);
             pc2.addIceCandidate(event.candidate);
         };
         pc2.onicecandidate = event => {
-            //console.log("pc2.onicecandidate");
+            //console.log("pc2.onicecandidate", event.candidate);
             pc1.addIceCandidate(event.candidate);
         }
         pc2.ontrack = event => {
@@ -145,7 +148,7 @@ document.querySelector("button.connect").onclick = event => {
             // dc2.onopen = event => console.log("dc2.onopen");
             // dc2.onclose = event => console.log("dc2.onclose");
             // dc2.onerror = event => console.log("dc2.onerror", event.error);
-        }
+        };
         pc1.onnegotiationneeded = event => {
             pc1.createOffer().then(offer => {
                 //console.log(offer);
