@@ -16,10 +16,16 @@ Please see our research paper
 for this project's motivation, background, related work, and an overview of
 its software architecture. The paper also lists several examples of end user
 driven innovation enabled by this software.
-The software includes extensive [documentation](help.pdf), and this can also be
+The software includes an [extensive documentation](help.pdf), and this can also be
 printed from the help tab of the options panel.
-Please checkout the Youtube video on getting started with this project, and a
-walk-through of many of the included examples.
+Please checkout the Youtube video on [getting started](https://youtu.be/A7RUuiF8iQ4)
+with this project, and a walk-through of many of the included examples. I highly
+recommend watching the video, if you are a developer interested in trying out
+this project.
+
+<!--
+[![Getting started with RTC Helper](https://img.youtube.com/vi/A7RUuiF8iQ4/0.jpg)](https://youtu.be/A7RUuiF8iQ4){:target="_blank"}
+-->
 
 This software is still in its early stage. It is in &ldquo;demo quality&rdquo;, i.e., good enough
 for showing a demo, but not good enough for independent use without supervision.
