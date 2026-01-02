@@ -40,7 +40,7 @@ for all our projects.
 The core software is released under dual license: AGPL (GNU Affero General Public License) as well as
 Alternative commercial license. See [LICENSE](LICENSE) for details. This is similar in spirit to
 MySQL's dual license, except that we use AGPL. The core software contains everything in this
-repository, except for the customization functions' sample code of `functions.js``.
+repository, except for the customization functions' sample code of `functions.js`.
 
 The single file named `functions.js`, that contains many customization functions, is considered
 outside the core software, and is released under a permissive MIT license, as mentioned in that file.
