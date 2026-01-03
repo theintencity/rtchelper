@@ -30,7 +30,6 @@
         "open_in_tab": true,
         "page": "options/index.html"
     },
-    //"devtools_page": "devtools.html",
     "content_security_policy": {
         "extension_pages": "script-src 'self'; object-src 'self'",
         "sandbox": "sandbox allow-scripts; script-src 'self' 'unsafe-eval'; object-src 'self'"
