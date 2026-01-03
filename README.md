@@ -18,10 +18,31 @@ its software architecture. The paper also lists several examples of end user
 driven innovation enabled by this software.
 The software includes an [extensive documentation](help.pdf), and this can also be
 printed from the help tab of the options panel.
+
 Please checkout the Youtube video on [getting started](https://youtu.be/A7RUuiF8iQ4)
 with this project, and a walk-through of many of the included examples. I highly
-recommend watching the video, if you are a developer interested in trying out
-this project.
+recommend watching the video, if you are a developer or end user interested in trying out
+this project. It is an hour long video, but only the first fifteen minutes is enough
+to get started.
+
+Since this browser extension will not be published on the official extension/web store,
+the end users who are interested in using this software on third-party websites will
+also need to install it in developer mode. Detailed instructions
+are in the documentation PDF and getting started video mentioned above.
+The summary of steps to install the extension is as follows:
+
+  1. Create a new browser profile in Google Chrome. This is to avoid interfering
+     with your regular browsing activity.
+  1. Open chrome://extensions in the browser. This is the browser's extensions page.
+  1. Click to enable the developer mode on the top right of the page. This allows
+     loading an extension outside of the official extension/web store.
+  1. Download the [rtchelper.zip](rtchelper.zip) file containing this project's
+     browser extension.
+  1. Open file explorer or finder on your machine. Locate the downloaded ZIP file,
+     and drag it to the browser's extension page with developer mode enabled.
+  1. This should install the extension on that browser profile. Use the extension 
+     icon next to the address bar, to select and pin the newly installed extension.
+
 
 <!--
 [![Getting started with RTC Helper](https://img.youtube.com/vi/A7RUuiF8iQ4/0.jpg)](https://youtu.be/A7RUuiF8iQ4){:target="_blank"}
