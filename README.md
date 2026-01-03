@@ -16,7 +16,7 @@ Please see our research paper
 for this project's motivation, background, related work, and an overview of
 its software architecture. The paper also lists several examples of end user
 driven innovation enabled by this software.
-The software includes an [extensive documentation](help.pdf), and this can also be
+The software includes an [extensive documentation](docs/help.pdf), and this can also be
 printed from the help tab of the options panel.
 
 Please checkout the Youtube video on [getting started](https://youtu.be/A7RUuiF8iQ4)
@@ -24,6 +24,15 @@ with this project, and a walk-through of many of the included examples. I highly
 recommend watching the video, if you are a developer or end user interested in trying out
 this project. It is an hour long video, but only the first fifteen minutes is enough
 to get started.
+
+
+| Research Paper | Documentation PDF | Getting started video |
+|:-----:|:-----:|:-----:|
+| [![Research paper on Unlocking WebRTC for End User Driven Innovation](docs/res/paper.png)](https://arxiv.org/pdf/2512.23688) | [![Extensive Documentation](docs/res/help.png)](https://raw.githack.com/theintencity/rtchelper/main/docs/help.pdf) | [![Getting started with RTC Helper](docs/res/youtube.png)](https://youtu.be/A7RUuiF8iQ4) |
+
+<!--
+[![Getting started with RTC Helper](https://img.youtube.com/vi/A7RUuiF8iQ4/0.jpg)](https://youtu.be/A7RUuiF8iQ4){:target="_blank"}
+-->
 
 Since this browser extension will not be published on the official extension/web store,
 the end users who are interested in using this software on third-party websites will
@@ -43,10 +52,6 @@ The summary of steps to install the extension is as follows:
   1. This should install the extension on that browser profile. Use the extension 
      icon next to the address bar, to select and pin the newly installed extension.
 
-
-<!--
-[![Getting started with RTC Helper](https://img.youtube.com/vi/A7RUuiF8iQ4/0.jpg)](https://youtu.be/A7RUuiF8iQ4){:target="_blank"}
--->
 
 This software is still in its early stage. It is in &ldquo;demo quality&rdquo;, i.e., good enough
 for showing a demo, but not good enough for independent use without supervision.
