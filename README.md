@@ -11,8 +11,12 @@ third-party websites, and (2) to allow developers to rapidly create
 proof-of-concept (PoC) of innovative ideas and emerging features built on top
 of WebRTC.
 
+| Presentation video | 3D Slides |
+|:-----:|:-----:|
+| [![Project Motivation](https://img.youtube.com/vi/iYRRuJcgx6s/0.jpg)](https://youtu.be/iYRRuJcgx6s) | [![Presentation Slides](src/res/intercept.png)](https://kundansingh.com/talks/2026-rtchelper) |
+
 Please watch the [video on project motivation](https://youtu.be/iYRRuJcgx6s), 
-and view the related [presentation material](https://kundansingh.com/talks/2026-rtchelper).
+and view the related [presentation material](https://kundansingh.com/talks/2026-rtchelper) above.
 
 Please see our research paper 
 [Unlocking WebRTC for End User Driven Innovation](https://doi.org/10.48550/arXiv.2512.23688)
