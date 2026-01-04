@@ -11,6 +11,9 @@ third-party websites, and (2) to allow developers to rapidly create
 proof-of-concept (PoC) of innovative ideas and emerging features built on top
 of WebRTC.
 
+Please watch the [video on project motivation](https://youtu.be/iYRRuJcgx6s), 
+and view the related [presentation material](https://kundansingh.com/talks/2026-rtchelper).
+
 Please see our research paper 
 [Unlocking WebRTC for End User Driven Innovation](https://doi.org/10.48550/arXiv.2512.23688)
 for this project's motivation, background, related work, and an overview of
@@ -31,6 +34,8 @@ to get started.
 | [![Research paper on Unlocking WebRTC for End User Driven Innovation](docs/res/paper.png)](https://arxiv.org/pdf/2512.23688) | [![Extensive Documentation](docs/res/help.png)](https://raw.githack.com/theintencity/rtchelper/main/docs/help.pdf) | [![Getting started with RTC Helper](docs/res/youtube.png)](https://youtu.be/A7RUuiF8iQ4) |
 
 <!--
+[![Project Motivation](https://img.youtube.com/vi/iYRRuJcgx6s/0.jpg)](https://youtu.be/iYRRuJcgx6s)
+
 [![Getting started with RTC Helper](https://img.youtube.com/vi/A7RUuiF8iQ4/0.jpg)](https://youtu.be/A7RUuiF8iQ4){:target="_blank"}
 -->
 
