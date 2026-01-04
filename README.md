@@ -13,7 +13,7 @@ of WebRTC.
 
 | Presentation video | 3D Slides |
 |:-----:|:-----:|
-| [![Project Motivation](https://img.youtube.com/vi/iYRRuJcgx6s/0.jpg)](https://youtu.be/iYRRuJcgx6s) | [![Presentation Slides](src/res/intercept.png)](https://kundansingh.com/talks/2026-rtchelper) |
+| [![Project Motivation](https://img.youtube.com/vi/iYRRuJcgx6s/0.jpg)](https://youtu.be/iYRRuJcgx6s) | [![Presentation Slides](docs/res/intercept.png)](https://kundansingh.com/talks/2026-rtchelper) |
 
 Please watch the [video on project motivation](https://youtu.be/iYRRuJcgx6s), 
 and view the related [presentation material](https://kundansingh.com/talks/2026-rtchelper) above.
