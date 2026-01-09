@@ -1,0 +1,49 @@
+{
+    "manifest_version": 3,
+    "name": "RTC Camera and Screen",
+    "version": "3.0",
+    "description": "Customize camera and screen capture in any WebRTC app on any website.",
+    "homepage_url": "https://github.com/theintencity/rtchelper",
+    "action": {
+        "default_icon": "res/icon48.png",
+        "default_title": "RTC Camera and Screen 3.0\nCustomize camera and screen capture in any WebRTC app on any website.\n(c) 2026, Kundan Singh."
+    },
+    "background": {
+        "service_worker": "js/background.js"
+    },
+    "content_scripts": [ {
+        "all_frames": true,
+        "js": [ "js/content.js" ],
+        "matches": [ "https://*/*", "http://localhost:*/*" ],
+        "run_at": "document_start"
+    }, {
+        "all_frames": true,
+        "js": [ "js/functions.js", "js/inject.js" ],
+        "matches": [ "https://*/*", "http://localhost:*/*" ],
+        "run_at": "document_start",
+        "world": "MAIN"
+    } ],
+    "icons": {
+        "128": "res/icon128.png", "16": "res/icon16.png", "48": "res/icon48.png"
+    },
+    "web_accessible_resources": [{
+        "resources": ["res/icon48.png", "res/*.jpg", "res/*.png", "res/*.mp4", "ext/*"],
+        "matches": ["<all_urls>"]
+    }],
+    "options_ui": {
+        "browser_style": true,
+        "open_in_tab": true,
+        "page": "js/options.html"
+    },
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'",
+        "sandbox": "sandbox allow-scripts; script-src 'self' 'unsafe-eval'; object-src 'self'"
+    },
+    "permissions": [ 
+        "storage", "scripting", "activeTab"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "update_url": "http://clients2.google.com/service/update2/crx"
+}
