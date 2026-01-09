@@ -12,7 +12,7 @@ proof-of-concept (PoC) of innovative ideas and emerging features built on top
 of WebRTC.
 
 Please watch the [video on project motivation](https://youtu.be/iYRRuJcgx6s), 
-and view the related [presentation material](https://kundansingh.com/talks/2026-rtchelper) above. There is also a [demonstration video](https://youtu.be/A5OXQznagxs)
+and view the related [presentation material](https://kundansingh.com/talks/2026-rtchelper) below. There is also a [demonstration video](https://youtu.be/A5OXQznagxs)
 of the user friendly project, RTC Camera and Screen, which shows a subset
 of the features, such as virtual camera for third-party web video conferencing
 apps.
