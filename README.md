@@ -11,12 +11,15 @@ third-party websites, and (2) to allow developers to rapidly create
 proof-of-concept (PoC) of innovative ideas and emerging features built on top
 of WebRTC.
 
-| Presentation video | 3D Slides |
-|:-----:|:-----:|
-| [![Project Motivation](https://img.youtube.com/vi/iYRRuJcgx6s/0.jpg)](https://youtu.be/iYRRuJcgx6s) | [![Presentation Slides](docs/res/intercept.png)](https://kundansingh.com/talks/2026-rtchelper) |
-
 Please watch the [video on project motivation](https://youtu.be/iYRRuJcgx6s), 
-and view the related [presentation material](https://kundansingh.com/talks/2026-rtchelper) above.
+and view the related [presentation material](https://kundansingh.com/talks/2026-rtchelper) above. There is also a [demonstration video](https://youtu.be/A5OXQznagxs)
+of the user friendly project, RTC Camera and Screen, which shows a subset
+of the features, such as virtual camera for third-party web video conferencing
+apps.
+
+| Presentation video | 3D Slides | Virtual camera demo |
+|:-----:|:-----:|:-----:|
+| [![Project Motivation](https://img.youtube.com/vi/iYRRuJcgx6s/0.jpg)](https://youtu.be/iYRRuJcgx6s) | [![Presentation Slides](docs/res/intercept.png)](https://kundansingh.com/talks/2026-rtchelper) | [![Virtual Camera Demo](https://img.youtube.com/vi/A5OXQznagxs/0.jpg)](https://youtu.be/A5OXQznagxs) |
 
 Please see our research paper 
 [Unlocking WebRTC for End User Driven Innovation](https://doi.org/10.48550/arXiv.2512.23688)
@@ -54,8 +57,8 @@ The summary of steps to install the extension is as follows:
   1. Open chrome://extensions in the browser. This is the browser's extensions page.
   1. Click to enable the developer mode on the top right of the page. This allows
      loading an extension outside of the official extension/web store.
-  1. Download the [rtchelper.zip](rtchelper.zip) file containing this project's
-     browser extension.
+  1. Download the [rtchelper.zip](rtchelper.zip) or [rtccamera.zip](rtccamera.zip)
+     file containing this project's browser extension.
   1. Open file explorer or finder on your machine. Locate the downloaded ZIP file,
      and drag it to the browser's extension page with developer mode enabled.
   1. This should install the extension on that browser profile. Use the extension 
